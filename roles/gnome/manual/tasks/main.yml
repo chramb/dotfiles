@@ -1,0 +1,24 @@
+---
+#- name: "Install Icon Theme" TODO DESTDIR="~/.local/share/icons"
+- name: "Install Cursor Theme"
+  block:
+    - name: "Download release tarball"
+      get_url:
+        url: https://github.com/ful1e5/Bibata_Cursor/releases/download/v2.0.3/Bibata-Modern-Classic.tar.gz
+        dest: /tmp/Bibata-Modern-Classic.tar.gz
+        checksum: sha256:201cf9a7eea44662a835226278c214f3952dd89548ab6feec292ca9d4ca1f305
+      #get_url:
+      #  url: https://github.com/ful1e5/Bibata_Cursor/releases/download/v2.0.3/Bibata.tar.gz
+      #  dest: /tmp/Bibata.tar.gz
+      #  checksum: sha256:1664a1e848707e643362eb772a38f077a4cac6362ca39f5705f59e85128b270c
+    - name: "Extract Icons"
+      unarchive:
+        remote_src: yes
+        src: /tmp/Bibata-Modern-Classic.tar.gz
+        dest: "{{ lookup('ansible.builtin.env', 'HOME') }}/.local/share/icons/"
+    - name: "Remove tarball"
+      file:
+        path: /tmp/Bibata-Modern-Classic.tar.gz
+        state: absent
+#- name: "Install Fira Code Nerd Fonts"
+

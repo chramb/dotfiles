@@ -1,0 +1,18 @@
+---
+  - name: "Dotfiles Playbook"
+    hosts: localhost
+    connection: local 
+    roles:
+      - gnome/manual
+      #- gnome/dconf
+      - gnome/gsettings
+      #- flatpak
+
+
+
+# TODO
+# - Gnome/
+# - Fedora/repos
+# - Silverblue/
+#   - Remove firefox
+# - Flatpak - just add

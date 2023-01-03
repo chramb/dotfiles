@@ -1,0 +1,16 @@
+- name: "Configure GNOME"
+  gsetting:
+    settings:
+      org.gnome.desktop.input-sources.xkb-options: "['caps:swapescape', 'altwin:swap_lalt_lwin']"
+      org.gnome.desktop.interface.color-scheme: "prefer-dark"
+      org.gnome.desktop.interface.gtk-theme: "Adwaita-dark"
+      org.gnome.desktop.interface.show-battery-percentage: "true"
+      org.gnome.desktop.peripherals.touchpad.tap-to-click: "true"
+      org.gnome.mutter.workspaces-only-on-primary: "false"
+        #org.gnome.shell.keybindings.show-screenshot-ui: "{% raw %}<Shift><Super>s{% endraw %}"
+      org.gnome.desktop.interface.icon-theme: "Papirus"
+      org.gnome.desktop.interface.cursor-theme: "Bibata-Modern-Classic"
+
+
+
+

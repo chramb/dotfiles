@@ -1,0 +1,21 @@
+---
+- name: "input sources"
+  dconf:
+    key: "/org/gnome/desktop/input-sources/{{ item.key }}"
+    value: "{{ item.value }}"
+    state: present
+  loop:
+    - { key: "sources", value: "[('xkb', 'pl')]" }
+
+# - name: "custom keybindings"
+#   dconf:
+#     key: "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/{{ item.key }}"
+#     value: "{{ item.value }}"
+#     state: present
+#   loop:
+#     - key: "binding"
+#       value: "<Super>Return"
+#     - key: "command"
+#       value: "gnome-terminal"
+#     - key: "name"
+#       value: "Terminal"

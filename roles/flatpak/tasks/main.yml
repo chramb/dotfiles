@@ -1,0 +1,27 @@
+---
+# TODO
+# - install repos
+
+#- name: "Add flathub"
+#  become: true
+#  command: flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+- name: "Install Firefox"
+  flatpak:
+    name: org.mozilla.firefox
+    state: present
+    method: system
+
+- name: "Other packages"
+  flatpak:
+    name: "{{ item }}"
+    state: present
+    method: system
+  loop:
+    - com.belmoussaoui.Authenticator
+    - com.bitwarden.desktop
+    - com.discordapp.Discord
+    - com.github.tchx84.Flatseal
+    - com.mattjakeman.ExtensionManager
+    - im.riot.Riot
+    - io.github.celluloid_player.Celluloid
+    - md.obsidian.Obsidian
