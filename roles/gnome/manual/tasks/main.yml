@@ -11,14 +11,43 @@
       #  url: https://github.com/ful1e5/Bibata_Cursor/releases/download/v2.0.3/Bibata.tar.gz
       #  dest: /tmp/Bibata.tar.gz
       #  checksum: sha256:1664a1e848707e643362eb772a38f077a4cac6362ca39f5705f59e85128b270c
-    - name: "Extract Icons"
+    - name: "Install Icons"
       unarchive:
         remote_src: yes
         src: /tmp/Bibata-Modern-Classic.tar.gz
         dest: "{{ lookup('ansible.builtin.env', 'HOME') }}/.local/share/icons/"
-    - name: "Remove tarball"
-      file:
-        path: /tmp/Bibata-Modern-Classic.tar.gz
-        state: absent
-#- name: "Install Fira Code Nerd Fonts"
+          #- name: "Remove tarball"
+          #  file:
+          #    path: /tmp/Bibata-Modern-Classic.tar.gz
+          #    state: absent
+    - name: "Install Fira Code Nerd Fonts"
+      block:
+        - name: "Download Fonts"
+          get_url:
+            url: https://github.com/ryanoasis/nerd-fonts/releases/download/v2.2.2/FiraCode.zip
+            dest: /tmp/FiraCode.zip
+            checksum: sha256:20182e6e7c42cf8ab479d83af3200266261ec9bd4e80cdaceb793ecd56c9a398
+        - name: "Make dir for Fonts"
+          file:
+            path: "{{ lookup('ansible.builtin.env', 'HOME') }}/.local/share/fonts/fira-code-nerd-font"
+            state: directory
+              #mode: 775
+        - name: "Install Fonts"
+          unarchive:
+            remote_src: yes
+            src: /tmp/FiraCode.zip
+            dest: "{{ lookup('ansible.builtin.env', 'HOME') }}/.local/share/fonts/fira-code-nerd-font"
+            include:
+              - "Fira Code Bold Nerd Font Complete Mono.ttf"
+              - "Fira Code Bold Nerd Font Complete.ttf"
+              - "Fira Code Light Nerd Font Complete Mono.ttf"
+              - "Fira Code Light Nerd Font Complete.ttf"
+              - "Fira Code Medium Nerd Font Complete Mono.ttf"
+              - "Fira Code Medium Nerd Font Complete.ttf"
+              - "Fira Code Regular Nerd Font Complete Mono.ttf"
+              - "Fira Code Regular Nerd Font Complete.ttf"
+              - "Fira Code Retina Nerd Font Complete Mono.ttf"
+              - "Fira Code Retina Nerd Font Complete.ttf"
+              - "Fira Code SemiBold Nerd Font Complete Mono.ttf"
+              - "Fira Code SemiBold Nerd Font Complete.ttf"
 
