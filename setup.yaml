@@ -3,9 +3,9 @@
     hosts: localhost
     connection: local 
     roles:
+      - gnome/gsettings
       - gnome/manual
       #- gnome/dconf
-      - gnome/gsettings
       #- flatpak
 
 
