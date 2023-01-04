@@ -43,6 +43,7 @@ flatpak --user override --socket=wayland --env=MOZ_ENABLE_WAYLAND=1 org.mozilla.
   - Bitwarden
   - Multi-Account Containers
 - Add security Exception for weechat relay cert
+- Disable sponsored shortcuts
 
 # DNF Repos
 ```
@@ -55,5 +56,7 @@ sudo dnf config-manager --add-repo https://pkgs.tailscale.com/stable/fedora/tail
 # Other Packages
 ## DNF
 ```
-sudo dnf in neovim papirus-icon-theme gnome-console intel-media-driver bat git-delta lsd duf tailscale
+sudo dnf in neovim papirus-icon-theme gnome-console intel-media-driver \
+    gh bat git-delta lsd duf tailscale @virtualization
+sudo dnf rm rhythmbox totem gnome-{boxes,tour,text-editor}
 ```
