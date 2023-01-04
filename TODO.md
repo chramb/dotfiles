@@ -11,6 +11,9 @@
 gsettings set org.gnome.desktop.interface monospace-font-name 'FiraCode Nerd Font 10'
 ```
 ## Extensions installed
+- AppIndicator and KStatusNotifierItem Support
+- Bluetooth Quick Connect
+- Compiz windows effect
 - GSConnect
 
 # Add cursor theme to flatpak
