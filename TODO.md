@@ -61,5 +61,20 @@ sudo dnf config-manager --add-repo https://pkgs.tailscale.com/stable/fedora/tail
 ```
 sudo dnf in neovim papirus-icon-theme gnome-console intel-media-driver \
     gh bat git-delta lsd duf tailscale @virtualization
-sudo dnf rm rhythmbox totem gnome-{boxes,tour,text-editor}
+sudo dnf rm rhythmbox totem gnome-{boxes,tour,connections,text-editor}
 ```
+
+# Obsidian
+## Install
+```
+flatpak install md.obsidian.Obsidian
+```
+## Enable Wayland
+```
+flatpak override --user --env=OBSIDIAN_USE_WAYLAND=1 md.obsidian.Obsidia
+```
+## Auth to github for git extension
+```
+ flatpak run --command=gh md.obsidian.Obsidian auth login
+```
+
