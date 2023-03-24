@@ -1,13 +1,12 @@
 ---
-  - name: "Dotfiles Playbook"
-    hosts: localhost
-    connection: local 
-    roles:
-      - gnome/gsettings
-      - gnome/manual
-      #- gnome/dconf
-      #- flatpak
-
+- name: "Dotfiles Playbook"
+  hosts: localhost
+  connection: local
+  roles:
+    - gnome/gsettings
+    - gnome/manual
+    #- gnome/dconf
+    #- flatpak
 
 
 # TODO
